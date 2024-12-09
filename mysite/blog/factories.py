@@ -30,6 +30,7 @@ class UserFactory(factory.django.DjangoModelFactory): # Create a UserFactory cla
 class PostFactory(factory.django.DjangoModelFactory): # Create a PostFactory class
     title = factory.LazyAttribute(lambda x: faker.sentence()) # Use faker to generate a sentence
     created_on = factory.LazyAttribute(lambda x: now()) # Use the current time
+    
     author = factory.SubFactory(UserFactory) # Use the UserFactory to create an author
     status = 0
 
